@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <title>Spring Security Example</title>
+</head>
+<body>
+<div align="center">
+    <h1>User page</h1>
+    <br/>
+    <form action="#" th:object="${user}"
+          method="post">
+
+        <table border="0" cellpadding="10">
+            <tr>
+                <td>
+                    <input type="hidden" th:field="*{id}"/>
+                </td>
+            </tr>
+            <tr>
+                <td>User Name:</td>
+                <td>
+                    <input type="text" th:field="*{userName}" readonly="readonly"/>
+                </td>
+            </tr>
+            <tr>
+                <td>User LastName:</td>
+                <td><input type="text" th:field="*{userLastname}" readonly="readonly"/></td>
+            </tr>
+            <tr>
+                <td>Mail:</td>
+                <td><input type="text" th:field="*{userMail}" readonly="readonly"/></td>
+            </tr>
+            <tr>
+                <td>Age:</td>
+                <td><input type="text" th:field="*{userAge}" readonly="readonly"/></td>
+            </tr>
+            <tr>
+                <td>Password:</td>
+                <td><input type="text" th:field="*{password}" readonly="readonly"/></td>
+            </tr>
+            <tr>
+                <td><input type="hidden" th:field="*{roles}"/></td>
+            </tr>
+         </table>
+    </form>
+    <form th:action="@{/logout}" method="post">
+        <input type="submit" value="POST LOGOUT"></input>
+    </form>
+</div>
+</body>
+</html>
