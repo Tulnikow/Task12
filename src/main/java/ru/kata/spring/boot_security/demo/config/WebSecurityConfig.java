@@ -1,4 +1,4 @@
-package ru.kata.spring.boot_security.demo.configs;
+package ru.kata.spring.boot_security.demo.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
@@ -36,7 +36,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                     .and()
                         .logout()
                         .logoutUrl("/logout")
-                        .logoutSuccessUrl("/")
+                        .clearAuthentication(true)
+                        .invalidateHttpSession(true)
+                        .logoutSuccessUrl("/login")
                         .permitAll();
     }
 

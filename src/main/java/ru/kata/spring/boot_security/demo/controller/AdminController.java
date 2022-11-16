@@ -11,30 +11,21 @@ import org.springframework.web.servlet.ModelAndView;
 
 import ru.kata.spring.boot_security.demo.model.Role;
 import ru.kata.spring.boot_security.demo.model.User;
-import ru.kata.spring.boot_security.demo.services.UserService;
+import ru.kata.spring.boot_security.demo.service.UserService;
 
 import javax.validation.Valid;
 import java.util.List;
 
 
 @Controller
-public class UsersController {
+public class AdminController {
     private final UserService service;
 
 
     @Autowired
-    public UsersController(UserService service) {
+    public AdminController(UserService service) {
         this.service = service;
 
-    }
-
-    @RequestMapping("/user")
-    public String user(Model model) {
-        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        String username = auth.getName();
-        User user = (User) service.loadUserByUsername(username);
-        model.addAttribute("user", user);
-        return "user";
     }
 
     @RequestMapping("/admin")
